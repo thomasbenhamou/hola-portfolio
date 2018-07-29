@@ -1,7 +1,6 @@
 /* =================================================================== 
  *
- *  Hola v1.0 Main Stylesheet
- *  10-02-2017
+ *  Main Stylesheet
  *  ------------------------------------------------------------------
  *
  *  TOC:
@@ -15,9 +14,6 @@
  *      ## tables
  *      ## spacing
  *      ## pace.js styles - minimal
- *  # forms
- *      ## style placeholder text
- *      ## Change Autocomplete styles in Chrome
  *  # buttons
  *  # additional components
  *      ## alert box
@@ -25,7 +21,6 @@
  *      ## skillbars
  *  # common and reusable theme styles 
  *      ## section intro
- *      ## blog-list
  *  # header styles
  *      ## header logo
  *      ## mobile menu toggle
@@ -37,18 +32,10 @@
  *  # about
  *      ## timeline
  *  # works
- *      ## bricks/masonry
- *  # testimonials
- *  # blog
  *  # cta
- *  # stats
  *  # contact
  *  # footer
  *      ## go to top
- *  # blog styles
- *      ## blog page header
- *      ## blog content
- *      ## comments
  *
  * =================================================================== */
 
@@ -1389,125 +1376,6 @@ input::-moz-focus-inner {
   }
 }
 
-/* ------------------------------------------------------------------- 
- * ## blog-list - (_common-styles.scss)
- * ------------------------------------------------------------------- */
-
-.blog-list {
-  margin-top: 6rem;
-  margin-left: 0;
-}
-
-.blog-list article {
-  margin-bottom: 7.2rem;
-}
-
-.blog-list article:nth-child(2n + 1) {
-  padding-right: 50px;
-}
-
-.blog-list article:nth-child(2n + 2) {
-  padding-left: 50px;
-}
-
-.blog-list h2 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-top: 0.3rem;
-  margin-bottom: 2.1rem;
-  padding-bottom: 2.4rem;
-  color: #0d0a0b;
-  position: relative;
-}
-
-.blog-list h2 a {
-  color: #0d0a0b;
-}
-
-.blog-list h2::after {
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  width: 80px;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-.blog-list .blog-date {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.5rem;
-  color: #124d63;
-}
-
-.blog-list .blog-date a {
-  color: #124d63;
-}
-
-.blog-list .blog-date a:hover,
-.blog-list .blog-date a:focus,
-.blog-list .blog-date a:active {
-  color: #000000;
-}
-
-.blog-list .blog-cat {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  color: #000000;
-  margin-top: -0.9rem;
-}
-
-.blog-list .blog-cat a {
-  color: #000000;
-}
-
-.blog-list .blog-cat a:hover,
-.blog-list .blog-cat a:focus,
-.blog-list .blog-cat a:active {
-  color: #124d63;
-}
-
-.blog-list .blog-cat a::after {
-  content: ', ';
-}
-
-.blog-list .blog-cat a:last-child::after {
-  display: none;
-}
-
-/* ------------------------------------------------------------------- 
- * responsive:
- * blog-list
- * ------------------------------------------------------------------- */
-
-@media only screen and (max-width: 1200px) {
-  .blog-list article:nth-child(2n + 1) {
-    padding-right: 40px;
-  }
-  .blog-list article:nth-child(2n + 2) {
-    padding-left: 40px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .blog-list article:nth-child(n) {
-    padding: 0 15px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .blog-list article:nth-child(n) {
-    padding: 0;
-  }
-  .blog-list h2 {
-    font-size: 2.7rem;
-  }
-}
-
 /* ===================================================================
  * # header styles - (_site-layout.scss)
  *
@@ -1716,6 +1584,10 @@ input::-moz-focus-inner {
 .header-nav li.current a {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
+  color: #1fbfc4;
+}
+
+.nav-item:hover {
   color: #1fbfc4;
 }
 
@@ -2450,9 +2322,7 @@ html.no-csstransitions .home-content__main {
   margin-bottom: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.project:last-child {
-  border-bottom: none;
-}
+
 .project-img {
   flex: 2;
   min-height: 40vh;
@@ -2502,7 +2372,7 @@ html.no-csstransitions .home-content__main {
 @media (max-width: 800px) {
   .project-img {
     flex: 1 0 100%;
-    filter: grayscale(0);
+    filter: none;
   }
   .project-description {
     flex: 1 0 100%;
@@ -2513,6 +2383,55 @@ html.no-csstransitions .home-content__main {
   }
 }
 
+/* ===================================================================
+ * # wordpress projects layout
+ *
+ * ------------------------------------------------------------------- */
+.wordpress-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  padding-bottom: 70px;
+}
+
+.wordpress-wrap a {
+  flex: 1 0 45%;
+  height: 400px;
+  margin: 15px;
+  max-width: 50%;
+  filter: grayscale(4);
+  transition: all 0.4s linear;
+}
+
+.wordpress-wrap a:hover {
+  filter: grayscale(0);
+}
+
+.wordpress-project {
+  background-size: cover !important;
+  background-position: center;
+  background-repeat: no-repeat !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .wordpress-wrap a {
+    flex: 1 0 100%;
+    width: 100%;
+    filter: none;
+    max-height: 300px;
+    min-width: 80vw;
+    max-width: 80vw;
+    margin: 15px auto;
+  }
+}
 /* ------------------------------------------------------------------- 
  * responsive:
  * works
