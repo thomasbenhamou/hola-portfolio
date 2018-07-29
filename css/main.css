@@ -2502,6 +2502,7 @@ html.no-csstransitions .home-content__main {
 @media (max-width: 800px) {
   .project-img {
     flex: 1 0 100%;
+    filter: grayscale(0);
   }
   .project-description {
     flex: 1 0 100%;
